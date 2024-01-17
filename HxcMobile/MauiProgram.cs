@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using HxcMobile.Services;
+using HxcUi.Extensions;
+using HxcUi.Services.Auth;
+using Microsoft.Extensions.Logging;
 
 namespace HxcMobile
 {
@@ -15,6 +18,8 @@ namespace HxcMobile
                 });
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.RegisterHxcUi();
+            builder.Services.AddScoped<IAuthService, AuthService>();
 
 #if DEBUG
     		builder.Services.AddBlazorWebViewDeveloperTools();
